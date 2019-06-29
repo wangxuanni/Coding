@@ -1,14 +1,7 @@
 package LinkList;
 
     public class DeleteDuplication {
-         class ListNode {
-             int val;
-             ListNode next = null;
 
-             ListNode(int val) {
-                 this.val = val;
-             }
-         }
 
         public ListNode deleteDuplication(ListNode pHead) {
             if (pHead == null || pHead.next == null) {
