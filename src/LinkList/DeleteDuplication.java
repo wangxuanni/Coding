@@ -1,7 +1,5 @@
 package LinkList;
 
-
-
     public class DeleteDuplication {
          class ListNode {
              int val;
