@@ -1,8 +1,6 @@
 package Array;
-//
+//构建乘积数组
 public class Multiply {
-
-
   static   int[] multiply(int[] A) {
         int len = A.length;
         int forword[] = new int[len];
