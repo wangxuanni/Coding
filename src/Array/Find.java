@@ -1,6 +1,7 @@
 package Array;
 
 public class Find {
+
     public boolean Find(int target, int[][] array) {
         int l = 0;
         int h = array.length - 1;
