@@ -1,5 +1,7 @@
 # CodingInterviews
-剑指offer java语言最优解链表
+剑指offer java语言最优解
+
+链表
 1. 删除重复节点  DummyNode
 2. 反转链表 前后当前3个结点
 3. 找出两个链表公共结点 Y型
