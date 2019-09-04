@@ -10,7 +10,7 @@
 
 *通常要分别选取列表**长度为奇数、偶数**的测试用例，以验证算法在一般情况下正确性。*
 
-
+使用链表 Queue<String> queue=new LinkedList<>()实现队列，入队offer()和出队poll()
 
 1. 删除重复节点  DummyNode
 2. 反转链表 前后当前3个结点
