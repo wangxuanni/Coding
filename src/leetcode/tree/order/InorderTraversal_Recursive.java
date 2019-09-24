@@ -14,19 +14,22 @@ import java.util.Stack;
 
 public class InorderTraversal_Recursive {
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> ret = new ArrayList<>();
-        if (root == null) return ret;
-        Stack<TreeNode> stack = new Stack<>();
+//如果它的左孩子为空，就出它，然后把它的右孩子压进栈
+        List<Integer> list = new ArrayList<Integer>();
         TreeNode cur = root;
-        while (cur != null || !stack.isEmpty()) {
-            while (cur != null) {
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(cur);
+
+        while (cur == null && stack.isEmpty()) {
+            while (cur.left != null) {
                 stack.push(cur);
-                cur = cur.left;
+                cur=cur.left;
             }
-            TreeNode node = stack.pop();
-            ret.add(node.val);
-            cur = node.right;
+            TreeNode t =  stack.pop();
+            list.add(t.val);
+            cur=t.right;
+
         }
-        return ret;
+        return list;
     }
 }
