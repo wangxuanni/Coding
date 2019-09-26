@@ -2,9 +2,6 @@ package offer.LinkList;
 
 import java.util.ArrayList;
 
-/**
- * ��β��ͷ��ӡ����
- */
 public class PrintListFromTailToHead {
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         if(listNode==null){

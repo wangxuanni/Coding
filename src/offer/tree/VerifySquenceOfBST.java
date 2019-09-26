@@ -2,7 +2,6 @@ package offer.tree;
 
 public class VerifySquenceOfBST {
     public static boolean VerifySquenceOfBST(int[] sequence) {
-//ֻ��Ҫ�ж����������Ƿ��б�root�ߵģ���0��ʼҲ����ν��Ϊǰ��һ����С
         if (sequence.length <= 0 || sequence == null)
             return false;
         return ju(sequence, 0, sequence.length - 1);
