@@ -1,6 +1,6 @@
 package leetcode.tree;
 
-import tree.TreeNode;
+import offer.tree.TreeNode;
 
 /**
  * @description:
