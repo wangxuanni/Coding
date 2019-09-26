@@ -1,6 +1,6 @@
 package leetcode.tree;
 
-import tree.TreeNode;
+import interviews.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
