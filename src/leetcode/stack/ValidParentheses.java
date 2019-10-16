@@ -1,16 +1,13 @@
 package leetcode.stack;
-
 import java.util.Stack;
-
 /**
  * @description:'('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。()[]{}
  * @author: wangxuanni
  * @create: 2019-09-27 09:48
  **/
-
 public class ValidParentheses {
     public static void main(String[] args) {
-
+        Object o = new Object();
         System.out.println(new ValidParentheses().isValid("]"));
     }
 
