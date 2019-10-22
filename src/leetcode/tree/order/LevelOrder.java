@@ -31,10 +31,8 @@ public class LevelOrder {
                 }
                 if (node.right != null) {
                     queue.offer(node.right);
-
                 }
                 cur--;
-
             }
             result.add(list);
         }
