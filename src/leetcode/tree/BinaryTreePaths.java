@@ -1,6 +1,5 @@
 package leetcode.tree;
 
-import offer.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,21 +11,33 @@ import java.util.List;
  **/
 
 public class BinaryTreePaths {
+    public static void main(String[] args) {
+        TreeNode treeNode = new TreeNode(1);
+        treeNode.left= new TreeNode(2);
+        treeNode.right =new TreeNode(3);
+        List<String> strings = binaryTreePaths(treeNode);
+        System.out.println(strings.toString());
 
-    public List<String> binaryTreePaths(TreeNode root) {
-        binaryTreePaths(root, 0, 0);
-        return new ArrayList<>();
     }
 
-    public void binaryTreePaths(TreeNode root, int path, int sum) {
-        if (root == null) {
-            System.out.println(path);
-        } else {
-            path += root.val;
-            sum = sum < path ? path : sum;
-            binaryTreePaths(root.left, path, sum);
-            binaryTreePaths(root.right, path, sum);
+    public static List<String> binaryTreePaths(TreeNode root) {
+        ArrayList<String> list = new ArrayList<>();
+        if (root == null) return list;
+
+        if (root.left == null && root.right == null) {
+            list.add(String.valueOf(root.val));
+            return list;
         }
+        List<String> leftList = binaryTreePaths(root.left);
+        for (String s : leftList) {
+            list.add(String.valueOf(root.val) + "->" + s);
+        }
+        List<String> rightList = binaryTreePaths(root.right);
+        for (String s1 : rightList) {
+            list.add(String.valueOf(root.val) + "->" + s1);
+        }
+        return list;
+
     }
 
 
