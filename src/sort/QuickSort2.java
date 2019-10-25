@@ -20,7 +20,6 @@ public class QuickSort2 {
     public static void quickSort(int[] arr, int begin, int end) {
         if (begin >= end)
             return;
-
         int k = partition2(arr, begin, end);
         quickSort(arr, begin, k - 1);
         quickSort(arr, k + 1, end);

@@ -18,7 +18,6 @@ public class QuickSort {
     public static void quickSort(int[] arr, int begin, int end) {
         if (begin >= end)
             return;
-
         int k = partition(arr, begin, end);
         quickSort(arr, begin, k - 1);
         quickSort(arr, k + 1, end);

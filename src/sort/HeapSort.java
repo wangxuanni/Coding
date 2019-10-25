@@ -24,9 +24,7 @@ public class HeapSort {
         while (size > 0) {
             heapIfy(1, arr,size);
             swap(arr, 1, --size);
-
         }
-
     }
 
     static void heapInsert(int i, int[] arr) {
@@ -35,7 +33,6 @@ public class HeapSort {
             swap(arr, i, parent);
             i = parent;
         }
-
     }
 
     static void heapIfy(int index, int[] arr,int size) {
@@ -48,7 +45,6 @@ public class HeapSort {
             swap(arr, index, largest);
             index = largest;
             l = index * 2;
-
         }
     }
 

@@ -13,7 +13,6 @@ public class HeapSort2 {
         int[] a = {7, 3, 0, 8, 4, 1, 9};
         heapSort2(a);
         System.out.println(Arrays.toString(a));
-
     }
 
     static void heapSort2(int[] arr) {

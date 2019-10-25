@@ -21,12 +21,10 @@ public class MergeSortBT {
                 merge(arr,i,i+sz-1,Math.min(i+sz+sz-1,n-1));
             }
         }
-
     }
 
     public static void merge(int[] array1, int low, int mid, int high) {
         int[] array2 = array2 = new int[array1.length];
-
         int i = low, j = mid + 1, k = low;
         while (i <= mid && j <= high) {
             if (array1[i] <= array1[j])
@@ -36,7 +34,6 @@ public class MergeSortBT {
        //     System.out.println(Arrays.toString(array2));
         }
     //    System.out.println(Arrays.toString(array1));
-
         while (i <= mid)
             array2[k++] = array1[i++];
 
@@ -47,6 +44,5 @@ public class MergeSortBT {
             array1[i] = array2[i];
         }
      //   System.out.println(Arrays.toString(array1));
-
     }
 }
