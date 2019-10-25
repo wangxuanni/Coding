@@ -14,7 +14,6 @@ import java.util.Stack;
 
 public class PostorderTraversal_Recursive {
     public List<Integer> postorderTraversal(TreeNode root) {
-
         List<Integer> list = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<>();
 
@@ -28,9 +27,9 @@ public class PostorderTraversal_Recursive {
             list.add(node.val);
         }
         List<Integer> reserveList = new ArrayList<Integer>();
-        for (int i = list.size()-1; i >=0; i--) {
+        for (int i = list.size() - 1; i >= 0; i--) {
             reserveList.add(list.get(i));
-
         }
-        return reserveList;}
+        return reserveList;
+    }
 }
