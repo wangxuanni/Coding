@@ -22,13 +22,9 @@ public class PreorderTraversal_Recursive {
         while (!stack.isEmpty()) {
             TreeNode node=stack.pop();
             if (node.right!=null)stack.push(node.right);
-
             if (node.left!=null) stack.push(node.left);
-
             list.add(node.val);
-
         }
-
         return list;
     }
 
