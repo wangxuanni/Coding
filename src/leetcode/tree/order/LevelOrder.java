@@ -18,7 +18,6 @@ public class LevelOrder {
         List<List<Integer>> result = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         if (root == null) return result;
-
         queue.offer(root);
         while (!queue.isEmpty()) {
             int cur = queue.size();
