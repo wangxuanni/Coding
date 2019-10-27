@@ -17,7 +17,6 @@ public class ClimbingStairs {
            int cur = pre1 + pre2;
             pre1 = pre2;
             pre2=cur;
-
         }
         return pre2;
     }
