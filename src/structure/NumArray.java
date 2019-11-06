@@ -29,7 +29,8 @@ public class NumArray {
             sum[i] = nums[i - 1] + sum[i - 1];
         }
     }
-
+    //要取区间【i~j】的和，因为sum的坐标比nums右移一位，所以【0~j】的和是 sum[j+1]
+    //区间【i~j】包括i，所以要减去【0~（i-1）】，因为sum的坐标比nums右移一位，所以减去【0~i】
     public int sumRange(int i, int j) {
         return sum[j+1] - sum[i];
     }
