@@ -989,12 +989,3 @@ public static int knapsack01BT(int[] weight, int[] value, int c, int index) {
 ```
 
 
-
-Partition Equal Subset Sum
- Longest Increasing Subsequence
-
-通常同学们可能会认为贪心算法比较简单。确实，通常贪心算法的实现非常容易，但是，一个问题是否
-能够使用贪心算法，是一定要小心的。我们在这一章来看一看，贪心算法可能会有哪些坑。
-10-1 贪心基础 Assign Cookies
-10-2 贪心算法与动态规划的关系 Non-overlapping Intervals
-10-3 贪心选择性质的证明
