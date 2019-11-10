@@ -120,12 +120,14 @@
 
 - 扑克牌的顺子 
 
-# 算法面试
+
+# [《玩转算法面试》](https://coding.imooc.com/class/82.html)
+
+慕课一个很棒的算法课程，针对算法面试，每一章对应一个类算法题，每一集解决一道leetcode题，并给出类似leetcode题。直接刚刷leetcode吃力可以先看这个视频。下面是我的笔记及通过的代码。
 
 ## 第3章 数组
 
-[
-移动零](https://leetcode-cn.com/problems/move-zeroes) 
+[移动零](https://leetcode-cn.com/problems/move-zeroes) 
 
 思路：将所有非零元素移到数组前面，index记录下标，index后的元素全置为0.
 
