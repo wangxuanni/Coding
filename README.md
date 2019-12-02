@@ -183,10 +183,53 @@ if(i!=index)不傻傻的自己和自己交换，针对数组没有0这种情况�
 
 
 
-### ？[两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii) 
+### [两数相加 II](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/) 
+
+解法一：暴力O（n^2）
 
 ```
+ public static int[] twoSum(int[] numbers, int target) {
+        int sta = 0;
+        int end = numbers.length - 1;
+        int[] result = new int[2];
+        while (sta <= numbers.length - 1 && end >= 0) {
+          int  sum = numbers[sta] + numbers[end];
+            if (sum == target) {
+                result[0] = sta+1;
+                result[1] = end+1;
+                return result;
+            }
+            if (sum > target)
+                end--;
+            if (sum < target)
+                sta++;
+        }
+        return result;
+    }
+```
 
+
+
+解法二：将元素去全放入查找表中，之后遍历每一个元素i，查找target-i。
+
+因为要返回的是索引，所以不能简单的使用set，得使用map，key是这个i，map是索引
+
+```
+public static int[] twoSum2(int[] nums, int target) {
+    HashMap<Integer, Integer> hm = new HashMap<>();
+    int[] ints = new int[2];
+    for (int i = 0; i < nums.length; i++) {
+        hm.put(nums[i], i);
+    }
+    for (int i = 0; i < nums.length; i++) {
+        int j = target - nums[i];
+        if (hm.containsKey(j) && hm.get(j) != i) {
+            ints[0] = i;
+            ints[1] = hm.get(j);
+        }
+    }
+    return ints;
+}
 ```
 
 
