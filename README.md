@@ -1,5 +1,19 @@
-[牛客剑指专题](https://www.nowcoder.com/ta/coding-interviews)
-## 分类及思路
+此仓库有四个部分：
+
+- 《剑指offer》java代码实现，一本关于面试算法题经典的书。
+- 《玩转算法面试》，慕课课程，对leetcode的题目分门别类进行讲解，讲的很好，力荐。
+- 排序算法，快排，归并排序，堆排。
+- 数据结构，目前有循环队列、AVL树。
+
+[TOC]
+
+
+
+# 剑指offer
+
+[剑指offer在线刷题，不买书也可以直接在这个网站上刷题，讨论区可以看看其他人的思路](https://www.nowcoder.com/ta/coding-interviews)
+
+
 
 ## 链表
 
@@ -121,9 +135,9 @@
 - 扑克牌的顺子 
 
 
-# [《玩转算法面试》](https://coding.imooc.com/class/82.html)
+# 玩转算法面试
 
-慕课一个很棒的算法课程，针对算法面试，每一章对应一个类算法题，每一集解决一道leetcode题，并给出类似leetcode题。直接刚刷leetcode吃力可以先看这个视频。下面是我的笔记及通过的代码。
+[玩转算法面试](https://coding.imooc.com/class/82.html)慕课一个很棒的算法课程，针对算法面试，每一章对应一个类算法题，每一集解决一道leetcode题，并给出类似leetcode题。直接刚刷leetcode吃力可以先看这个视频。下面是我的笔记及通过的代码。
 
 ## 第3章 数组
 
@@ -960,17 +974,17 @@ Climbing Stairs
 $$
  f(1) = A_1A 
 1
-​	
+	
  。
 $$
 再看 n = 2，
 $$
 f(2) = max(A_1A 
 1
-​	
+	
  , A_2A 
 2
-​	
+	
  )。
 $$
 对于 n = 3，有两个选项:
@@ -983,7 +997,7 @@ $$
 $$
 f(k) = max(f(k – 2) + A_kA 
 k
-​	
+	
  , f(k – 1))
 $$
 
@@ -1032,5 +1046,3 @@ public static int knapsack01BT(int[] weight, int[] value, int c, int index) {
 }
 
 ```
-
-
