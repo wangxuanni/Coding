@@ -137,7 +137,7 @@
 
 # 玩转算法面试
 
-[玩转算法面试](https://coding.imooc.com/class/82.html)慕课一个很棒的算法课程，针对算法面试，每一章对应一个类算法题，每一集解决一道leetcode题，并给出类似leetcode题。直接刚刷leetcode吃力可以先看这个视频。下面是我的笔记及通过的代码。
+[玩转算法面试](https://coding.imooc.com/class/82.html)慕课一个很棒的算法课程，针对算法面试，每一章对应一个类算法题，每一集解决一道leetcode题，并给出类似leetcode题。直接刚刷leetcode吃力可以先看这个视频。下面是我的笔记及LeetCode通过的代码。
 
 ## 第3章 数组
 
