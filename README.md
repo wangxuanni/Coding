@@ -72,7 +72,6 @@
 10. 二维数组中的查找
 11. 数组中最小的k个数
 
-
 ## 字符串
 
 1. 字符串转整数 注意：为0、正负、非法的情况
@@ -85,7 +84,6 @@
 
 1. 和为S的两个数字
 2. 整数中1出现的次数
-
 
 ## 二进制
 
@@ -110,30 +108,23 @@
 
 - 字符串的排序
 - 复杂链表的复制
-
 - 旋转数组的最小数字
 - 数组中只出现一次 位操作
 - 数组中重复的数字
 - 数组中的逆序对
-
 - 正则表达式匹配
 - 表示数值的字符串
-
 - 二叉搜索树和双向链表
 - 二叉树的下一个结点
 - 按之字形顺序打印二叉树
 - 把二叉树打印成多行
 - 二叉搜索树的第k个结点
 - 树中两个节点的最低公共祖先
-
 - 数据流中的中位数
 - 滑动窗口的最大值
-
 - 矩阵中的路径
 - 机器人的运动范围
-
 - 扑克牌的顺子 
-
 
 # 玩转算法面试
 
@@ -890,15 +881,205 @@ public boolean hasPathSum(TreeNode root, int sum) {
 
 ### [电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
 
+```java
+private static final String[] KEYS = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+public List<String> letterCombinations(String digits) {
+    List<String> combinations = new ArrayList<>();
+    if (digits == null || digits.length() == 0) {
+        return combinations;
+    }
+    doCombination(new StringBuilder(), combinations, digits);
+    return combinations;
+}
+
+private void doCombination(StringBuilder prefix, List<String> combinations, final String digits) {
+    if (prefix.length() == digits.length()) {
+        combinations.add(prefix.toString());
+        return;
+    }
+    int curDigits = digits.charAt(prefix.length()) - '0';
+    String letters = KEYS[curDigits];
+    for (char c : letters.toCharArray()) {
+        prefix.append(c);                         // 添加
+        doCombination(prefix, combinations, digits);
+        prefix.deleteCharAt(prefix.length() - 1); // 删除
+    }
+}
+```
+
+
+
+
+
 ### [全排列](https://leetcode-cn.com/problems/permutations)
+
+```java
+public List<List<Integer>> permute(int[] nums) {
+    List<List<Integer>> permutes = new ArrayList<>();
+    List<Integer> permuteList = new ArrayList<>();
+    boolean[] hasVisited = new boolean[nums.length];
+    backtracking(permuteList, permutes, hasVisited, nums);
+    return permutes;
+}
+
+private void backtracking(List<Integer> permuteList, List<List<Integer>> permutes, boolean[] visited, final int[] nums) {
+    if (permuteList.size() == nums.length) {
+        permutes.add(new ArrayList<>(permuteList)); // 重新构造一个 List
+        return;
+    }
+    for (int i = 0; i < visited.length; i++) {
+        if (visited[i]) {
+            continue;
+        }
+        visited[i] = true;
+        permuteList.add(nums[i]);
+        backtracking(permuteList, permutes, visited, nums);
+        permuteList.remove(permuteList.size() - 1);
+        visited[i] = false;
+    }
+}
+```
+
+
+
+
 
 ### [组合](https://leetcode-cn.com/problems/combinations/)
 
+```java
+public List<List<Integer>> combine(int n, int k) {
+    List<List<Integer>> combinations = new ArrayList<>();
+    List<Integer> combineList = new ArrayList<>();
+    backtracking(combineList, combinations, 1, k, n);
+    return combinations;
+}
+
+private void backtracking(List<Integer> combineList, List<List<Integer>> combinations, int start, int k, final int n) {
+    if (k == 0) {
+        combinations.add(new ArrayList<>(combineList));
+        return;
+    }
+    for (int i = start; i <= n - k + 1; i++) {  // 剪枝
+        combineList.add(i);
+        backtracking(combineList, combinations, i + 1, k - 1, n);
+        combineList.remove(combineList.size() - 1);
+    }
+}
+```
+
+
+
+
+
 ### [单词搜索](https://leetcode-cn.com/problems/word-search)
+
+```java
+private final static int[][] direction = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+private int m;
+private int n;
+
+public boolean exist(char[][] board, String word) {
+    if (word == null || word.length() == 0) {
+        return true;
+    }
+    if (board == null || board.length == 0 || board[0].length == 0) {
+        return false;
+    }
+
+    m = board.length;
+    n = board[0].length;
+    boolean[][] hasVisited = new boolean[m][n];
+
+    for (int r = 0; r < m; r++) {
+        for (int c = 0; c < n; c++) {
+            if (backtracking(0, r, c, hasVisited, board, word)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+private boolean backtracking(int curLen, int r, int c, boolean[][] visited, final char[][] board, final String word) {
+    if (curLen == word.length()) {
+        return true;
+    }
+    if (r < 0 || r >= m || c < 0 || c >= n
+            || board[r][c] != word.charAt(curLen) || visited[r][c]) {
+
+        return false;
+    }
+
+    visited[r][c] = true;
+
+    for (int[] d : direction) {
+        if (backtracking(curLen + 1, r + d[0], c + d[1], visited, board, word)) {
+            return true;
+        }
+    }
+
+    visited[r][c] = false;
+
+    return false;
+}
+```
+
+
 
 ### [岛屿数量](https://leetcode-cn.com/problems/number-of-islands)
 
+
+
 ### [N皇后](https://leetcode-cn.com/problems/n-queens/)
+
+```java
+private List<List<String>> solutions;
+private char[][] nQueens;
+private boolean[] colUsed;
+private boolean[] diagonals45Used;
+private boolean[] diagonals135Used;
+private int n;
+
+public List<List<String>> solveNQueens(int n) {
+    solutions = new ArrayList<>();
+    nQueens = new char[n][n];
+    for (int i = 0; i < n; i++) {
+        Arrays.fill(nQueens[i], '.');
+    }
+    colUsed = new boolean[n];
+    diagonals45Used = new boolean[2 * n - 1];
+    diagonals135Used = new boolean[2 * n - 1];
+    this.n = n;
+    backtracking(0);
+    return solutions;
+}
+
+private void backtracking(int row) {
+    if (row == n) {
+        List<String> list = new ArrayList<>();
+        for (char[] chars : nQueens) {
+            list.add(new String(chars));
+        }
+        solutions.add(list);
+        return;
+    }
+
+    for (int col = 0; col < n; col++) {
+        int diagonals45Idx = row + col;
+        int diagonals135Idx = n - 1 - (row - col);
+        if (colUsed[col] || diagonals45Used[diagonals45Idx] || diagonals135Used[diagonals135Idx]) {
+            continue;
+        }
+        nQueens[row][col] = 'Q';
+        colUsed[col] = diagonals45Used[diagonals45Idx] = diagonals135Used[diagonals135Idx] = true;
+        backtracking(row + 1);
+        colUsed[col] = diagonals45Used[diagonals45Idx] = diagonals135Used[diagonals135Idx] = false;
+        nQueens[row][col] = '.';
+    }
+}
+```
 
 
 
