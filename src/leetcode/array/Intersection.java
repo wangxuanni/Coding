@@ -13,8 +13,8 @@ import java.util.Set;
 
 public class Intersection {
     public static void main(String[] args) {
-        int[] a1 = {4, 9, 5};
-        int[] a2 = {9, 4, 9, 8, 4};
+        int[] a1 = {1, 2, 2, 1};
+        int[] a2 = {2, 2};
         int[] a3 = intersection(a1, a2);
         System.out.println(Arrays.toString(a3));
 
@@ -22,18 +22,19 @@ public class Intersection {
 
     public static int[] intersection(int[] nums1, int[] nums2) {
         Set<Integer> set = new HashSet<>();
-        Set<Integer> set2 = new HashSet<>();
+        Set<Integer> resultSet = new HashSet<>();
+        for (int i : nums1) {
+            set.add(i);
+        }
+        for (int i : nums2) {
+            if (set.contains(i)) {
+                resultSet.add(i);
+            }
+        }
+        int[] a1 = new int[resultSet.size()];
 
-        for (int i = 0; i < nums1.length; i++) {
-            set.add(nums1[i]);
-        }
-        for (int i = 0; i < nums2.length; i++) {
-            set2.add(nums2[i]);
-        }
-        set.retainAll(set2);
-        int[] a1 = new int[set.size()];
         int ind = 0;
-        for (Integer integer : set) {
+        for (Integer integer : resultSet) {
             a1[ind++] = integer;
         }
 
