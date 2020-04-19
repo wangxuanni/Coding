@@ -42,7 +42,7 @@ public class TwoSum {
     }
 
     /**
-     * 解法一：将元素去全放入查找表中，之后遍历每一个元素i，查找target-i。
+     * 解法二：将元素去全放入查找表中，之后遍历每一个元素i，查找target-i。
      * 因为要返回的是索引，所以不能简单的使用set，得使用map，key是这个i，map是索引
      *
      * @param nums
@@ -63,6 +63,5 @@ public class TwoSum {
             }
         }
         return ints;
-
     }
 }
