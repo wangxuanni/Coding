@@ -28,11 +28,9 @@ public class Subsets {
         //横向循环，纵向递归
         lists.add(new ArrayList<>(list));
         for (int i = j; i < nums.length; i++) {
-
             list.add(nums[i]);
-            f(j=j+1,nums, lists, list);
+            f(i,nums, lists, list);
             list.remove(list.indexOf(nums[i]));
-
         }
 
     }
