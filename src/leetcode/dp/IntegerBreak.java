@@ -7,6 +7,9 @@ package leetcode.dp;
  **/
 
 public class IntegerBreak {
+    public static void main(String[] args) {
+
+    }
     //自底向上
     public int integerBreakBT(int n) {
         int[] memo = new int[n + 1];
