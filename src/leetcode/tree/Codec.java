@@ -14,7 +14,7 @@ public class Codec {
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         if (root == null) return "#_";
-        String str = root.val+"_";
+        String str = root.val+"l_";
         str += serialize(root.left);
         str += serialize(root.right);
         return str;
