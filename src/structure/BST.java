@@ -11,6 +11,7 @@ import java.util.Stack;
 
 public class BST<E extends Comparable<E>> {
 
+
     public static void main(String[] args) {
         int[] arr = {5, 3, 6, 8, 4, 2};
         BST bst = new BST();
