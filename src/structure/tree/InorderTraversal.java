@@ -27,9 +27,7 @@ public class InorderTraversal {
                 if(index.right!=null){
                     stack.push(index.right);
                 }
-
             }
-
         } return result;
     }
 }
