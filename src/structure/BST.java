@@ -10,22 +10,10 @@ import java.util.Stack;
  **/
 
 public class BST<E extends Comparable<E>> {
-
-
     public static void main(String[] args) {
-        int[] arr = {5, 3, 6, 8, 4, 2};
-        BST bst = new BST();
-        for (int i : arr) {
-            bst.add(i);
-        }
-        bst.levelOrder();
-        System.out.println();
-        bst.removeMin();
-        bst.levelOrder();
-        bst.remove(3);
-        System.out.println();
-        bst.levelOrder();
+        System.out.println(1622013242>1622741110);
     }
+    
 
     public class Node {
         public E e;
