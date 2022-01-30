@@ -1,7 +1,7 @@
 package offer.tree;
 
 /**
- * @author zakree
+ * @author wangxuanni
  * @since 2022-01-04 14:16
  **/
 

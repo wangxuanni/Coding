@@ -3,7 +3,7 @@ package offer.tree;
 import java.util.ArrayList;
 
 /**
- * @author zakree
+ * @author wangxuanni
  * @since 2022-01-07 18:31
  **/
 

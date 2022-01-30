@@ -3,7 +3,7 @@ package offer.Array;
 /**
  * 旋转数组的最小数字
  * -。-想不明白这道题
- * @author zakree
+ * @author wangxuanni
  * @since 2021-06-27 14:37
  **/
 

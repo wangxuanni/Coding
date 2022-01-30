@@ -1,7 +1,7 @@
 package leetcode.dp;
 
 /**
- * @author zakree
+ * @author wangxuanni
  * @since 2021-10-02 15:38
  **/
 

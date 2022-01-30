@@ -1,6 +1,6 @@
 package offer.dp;
 /**
- * @author zakree
+ * @author wangxuanni
  * @since 2022-01-29 15:08
  * https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/50fxu1/
  **/

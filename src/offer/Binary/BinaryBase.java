@@ -1,7 +1,7 @@
 package offer.Binary;
 
 /**
- * @author zakree
+ * @author wangxuanni
  * @since 2021-06-27 14:50
  **/
 

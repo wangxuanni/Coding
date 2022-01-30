@@ -1,7 +1,7 @@
 package sort;
 
 /**
- * @author zakree
+ * @author wangxuanni
  * @since 2022-01-24 15:17
  **/
 

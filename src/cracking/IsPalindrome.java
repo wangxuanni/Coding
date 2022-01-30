@@ -9,7 +9,7 @@ import java.util.Stack;
 
 /**
  * 回文链表
- * @author zakree
+ * @author wangxuanni
  * @since 2021-12-29 17:42
  **/
 
