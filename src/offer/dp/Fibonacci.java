@@ -1,4 +1,4 @@
-package offer.Other;
+package offer.dp;
 
 public class Fibonacci {
     /**
