@@ -1,7 +1,7 @@
 package offer.LinkList;
 
 /**
- * @author keyu
+ * @author zakree
  * @since 2021-12-31 14:49
  **/
 

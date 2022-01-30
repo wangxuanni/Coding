@@ -7,7 +7,7 @@ package cracking;
  * 该坐标会设置为1，如果原本位置是0，则会被设置为1，设置为出现过
  * 如果原本位置是0，说明之前已经出现过了，则返回false
  *
- * @author keyu
+ * @author zakree
  * @since 2021-12-27 14:26
  **/
 
