@@ -3,6 +3,7 @@ package sort;
 import java.util.Arrays;
 
 /**
+ * 堆排序
  * @description:以下标为1排序，即不使用下标0，优点是找父子节点更容易
  * @author: wangxuanni
  * @create: 2019-10-20 17:20
