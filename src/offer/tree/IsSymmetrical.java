@@ -1,23 +1,25 @@
 package offer.tree;
 
+/**
+ * 对称二叉树
+ * https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/5d412v/
+ * @author wangxuanni
+ * @since 2022-02-03 18:31
+ **/
 public class IsSymmetrical {
-    boolean isSymmetrical(TreeNode pRoot)
-    { if(pRoot==null){
-        return true;
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) return true;
+        return f(root.right, root.left);
     }
-        return com(pRoot.left,pRoot.right);
 
-    }
-    boolean com(TreeNode left,TreeNode right)
-    {
-        if(left==null){
-            return right==null;
+    boolean f(TreeNode right, TreeNode left) {
+        if (right == null && left == null) {
+            return true;
         }
-        if(right==null)
+        if (right == null || left == null || right.val != left.val) {
             return false;
-        if(left.val!=right.val)
-            return false;
-        return com(left.right,right.left)&&com(left.left,right.right);
-    }
+        }
+        return f(left.right, right.left) && f(left.left, right.right);
 
+    }
 }
