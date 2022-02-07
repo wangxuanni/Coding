@@ -15,43 +15,32 @@ public class QuickSort {
 
     }
 
-    public static void quickSort(int[] arr, int begin, int end) {
-        if (begin >= end)
-            return;
-        int k = partition(arr, begin, end);
-        quickSort(arr, begin, k - 1);
-        quickSort(arr, k + 1, end);
+    public static void quickSort(int[] nums, int l, int r) {
+        // 子数组长度为 1 时终止递归
+        if (l >= r) return;
+        // 哨兵划分操作
+        int i = partition(nums, l, r);
+        // 递归左（右）子数组执行哨兵划分
+        quickSort(nums, l, i - 1);
+        quickSort(nums, i + 1, r);
     }
 
-    public static int partition(int[] arr, int begin, int end) {
-        int random = (int) (Math.random() * 100) % (end - begin + 1) + begin;
-        swap(arr, random, end);
-        int cutpoint = arr[end];//选择数组的最后一位为切分点
-        int count = begin - 1;//记交换的次数
-
-        int l = begin;
-        int r = end;
-        while (l <= r) {
-            if (arr[l] < cutpoint) {//所有的值都与切分点比较
-                count++;
-                l++;
-                swap(arr, count, l);
-            }
-
+    public static int partition(int[] nums, int l, int r) {
+        // 以 nums[l] 作为基准数
+        int i = l, j = r;
+        while (i < j) {
+            while (i < j && nums[j] >= nums[l]) j--;
+            while (i < j && nums[i] <= nums[l]) i++;
+            swap(nums, i, j);
         }
-        for (int j = begin; j < end; j++) {
-            if (arr[j] <= cutpoint) {//所有的值都与切分点比较
-                swap(arr, ++count, j);
-            }
-        }
-        swap(arr, ++count, end);
-        return count;//返回切分点的数组下标
+        swap(nums, i, l);
+        return i;
     }
 
-    static void swap(int arr[], int i, int j) {
-        int t = arr[i];
-        arr[i] = arr[j];
-        arr[j] = t;
+    public static void swap(int[] nums, int i, int j) {
+        // 交换 nums[i] 和 nums[j]
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
     }
 }
-
