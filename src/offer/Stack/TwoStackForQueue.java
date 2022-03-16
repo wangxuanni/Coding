@@ -1,7 +1,11 @@
 package offer.Stack;
 
 import java.util.Stack;
-
+/**
+ * 用两个栈实现队列
+ * @author keyu
+ * @since 2022-02-05 22:45
+ **/
 public class TwoStackForQueue {
     Stack<Integer> stack1 = new Stack<Integer>();
     Stack<Integer> stack2 = new Stack<Integer>();
