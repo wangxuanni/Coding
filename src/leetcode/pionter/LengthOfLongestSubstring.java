@@ -1,4 +1,4 @@
-package leetcode.array.pionter;
+package leetcode.pionter;
 
 /**
  * @description:输入: "abcabcbb"

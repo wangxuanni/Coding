@@ -1,4 +1,4 @@
-package leetcode.array.pionter;
+package leetcode.pionter;
 
 /**
  * @description:输入: s = 7, nums = [2,3,1,2,4,3]
