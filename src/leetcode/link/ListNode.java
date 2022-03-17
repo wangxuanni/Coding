@@ -2,11 +2,13 @@ package leetcode.link;
 
 public class ListNode {
 
-        int val;
-        ListNode next = null;
+    int val;
+    ListNode next = null;
 
-        ListNode(int val) {
-            this.val = val;
-        }
+    ListNode(int val) {
+        this.val = val;
+    }
 
+    ListNode() {
+    }
 }
