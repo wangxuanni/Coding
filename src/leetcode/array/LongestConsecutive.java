@@ -1,6 +1,7 @@
 package leetcode.array;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * 最长连续序列
@@ -17,19 +18,22 @@ public class LongestConsecutive {
     }
 
     public static int longestConsecutive(int[] nums) {
-        HashMap<Integer, Integer> map = new HashMap<>(nums.length);
+        if (nums == null || nums.length == 0) return 0;
+        HashSet<Integer> map = new HashSet<>(nums.length);
         for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], i);
+            map.add(nums[i]);
         }
 
-        int max = 0;
-        for (int i = 0; i < nums.length; i++) {
-            int element = nums[i] + 1;
+        int max = 1;
+        for (int i : map) {
+            if (map.contains(i - 1)) continue;
+            int element = i + 1;
             int count = 1;
-            while (map.containsKey(element++)) {
+            while (map.contains(element)) {
                 count++;
-                max = Math.max(max, count);
+                element++;
             }
+            max = Math.max(max, count);
         }
         return max;
 
