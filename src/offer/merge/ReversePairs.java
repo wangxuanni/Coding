@@ -3,6 +3,7 @@ package offer.merge;
 /**
  * 数组中的逆序对
  * https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof
+ * 思路基本就是归并排序
  *
  * @author keyu
  * @since 2022-03-21 18:31
