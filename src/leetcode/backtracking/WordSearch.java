@@ -9,56 +9,56 @@ import java.util.Arrays;
  **/
 
 public class WordSearch {
-    static int n;
-    static int m;
+    String word;
+    char[][] board;
+    boolean result = false;
     private final static int[][] direction = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
     public static void main(String[] args) {
         char[][] board = {
                 { 'B', 'A','B', },};
         String word = "bbabab";
-        System.out.println(exist(board, word));
+        WordSearch wordSearch = new WordSearch();
+        System.out.println(wordSearch.exist(board, word));
+    }
+
+    public  boolean exist(char[][] board, String word) {
+        this.board = board;
+        this.word = word;
+        return dfs("", 0, 0, new boolean[board.length][board[0].length]);
     }
 
 
-    public static boolean exist(char[][] board, String word) {
-
-        if (board == null || word.length() == 0)
-            return true;
-
-        n = board.length;
-        m = board[0].length;
-        boolean[][] hasV = new boolean[n][m];
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (f(board, word, i, j, hasV, 0))
-                    return true;
-            }
-
-        }
-        return false;
-
-    }
-
-    public static boolean f(char[][] board, String word, int c, int r, boolean[][] hasV, int curlen) {
-        if (curlen == word.length())
-            return true;
-
-       // System.out.println(word.charAt(curlen)+"is ?="+board[c][r]+" curlen:"+curlen);
-        if (c < 0 || c >= n || r < 0 || r >= m|| word.charAt(curlen) != board[c][r] || hasV[c][r]) {
+    public boolean dfs(String pre, int hang, int row, boolean[][] visited) {
+        //判断
+        if (hang < 0 || hang >= board.length
+                || row < 0 || row >= board.length
+                || visited[hang][row] || board[hang][row] != word.charAt(pre.length())) {
+            System.out.println(hang);
+            System.out.println(row);
+            System.out.println(board[hang][row]);
+            System.out.println(pre.length());
+            System.out.println(word.charAt(pre.length()));
             return false;
         }
-        hasV[c][r] = true;
-        //System.out.println("find" + word.charAt(curlen));
+        if (pre.equals(word)) {
+            return true;
+        }
 
-        for (int[] ints : direction) {
-            System.out.println(Arrays.toString(ints));
-            if (f(board, word, c + ints[0], r + ints[1], hasV, curlen+1)) {
-                return true;
+        for (int i = hang; i < board.length; i++) {
+            for (int j = row; j < board[0].length; j++) {
+                if (visited[i][j]) continue;
+                visited[i][j] = true;
+
+                result = result || dfs(pre, i + 1, j, visited);
+                result = result || dfs(pre, i - 1, j, visited);
+                result = result || dfs(pre, i, j + 1, visited);
+                result = result || dfs(pre, i, j - 1, visited);
+
+                visited[i][j] = false;
             }
         }
-        hasV[c][r] = false;
-        return false;
+        return result;
+
     }
 }
