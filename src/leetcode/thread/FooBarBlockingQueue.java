@@ -8,11 +8,11 @@ import java.util.concurrent.BlockingQueue;
  * @since 2022-03-09 15:58
  **/
 
-public class FooBar {private int n;
+public class FooBarBlockingQueue {private int n;
     BlockingQueue<Integer> foo = new ArrayBlockingQueue<Integer>(1);
     BlockingQueue<Integer> bar = new ArrayBlockingQueue<Integer>(1);
 
-    public FooBar(int n) {
+    public FooBarBlockingQueue(int n) {
         this.n = n;
     }
 
