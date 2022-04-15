@@ -10,29 +10,21 @@ import java.util.List;
  * https://leetcode-cn.com/problems/group-anagrams/
  *
  * @author keyu
- * @since 2022-03-25 16:16
+ * @since 2022-03-25 16:16 判断字符串的内容
  **/
 
 public class GroupAnagrams {
+
     public List<List<String>> groupAnagrams(String[] strs) {
-        ArrayList<List<String>> result = new ArrayList<List<String>>();
-        HashMap<String, List> map = new HashMap<>();
+        HashMap<String, List<String>> map = new HashMap<>();
         for (int i = 0; i < strs.length; i++) {
             char[] chars = strs[i].toCharArray();
             Arrays.sort(chars);
             String s = new String(chars);
-            if (map.containsKey(s)) {
-                map.get(s).add(strs[i]);
-            } else {
-                ArrayList<String> list = new ArrayList<>();
-                list.add(strs[i]);
-                map.put(s, list);
-            }
+            List orDefault = map.getOrDefault(s, new ArrayList<>());
+            orDefault.add(strs[i]);
+            map.put(s,orDefault);
         }
-        for (List<String> strings : map.values()) {
-            result.add(strings);
-
-        }
-        return result;
+        return new ArrayList<List<String>>(map.values());
     }
 }
