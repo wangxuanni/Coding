@@ -1,7 +1,9 @@
-package leetcode.tree;
+package leetcode.tree.dfs;
+
+import leetcode.tree.TreeNode;
 
 /**
- * @description:
+ * 路径和
  * @author: wangxuanni
  * @create: 2019-10-22 15:18
  **/
