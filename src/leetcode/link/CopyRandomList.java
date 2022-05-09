@@ -2,6 +2,9 @@ package leetcode.link;
 
 /**
  * 复杂链表的复制
+ * 1.go through linkedlist,copy each node and insert the node next
+ * 2.go through linkedlist,copy randow index.Notice：copy the randow next
+ * 3.split the linkedlist by odd node and even
  *
  * @author keyu
  * @since 2022-03-17 21:15
