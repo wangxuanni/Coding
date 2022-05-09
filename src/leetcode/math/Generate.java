@@ -7,36 +7,32 @@ import java.util.List;
 
 /**
  * 杨辉三角
+ *
  * @author keyu
  * @since 2022-04-26 12:20
  **/
 
 public class Generate {
-    public List<List<Integer>> generate(int numRows) {
-        //初始化 第一二层
-        //从arr的{1~i~len-2}arr[i]=arrHigh[i-1]+arr[i+1]
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> levelFirst = new ArrayList<>(Arrays.asList(1));
-        result.add(levelFirst);
-        if (numRows==1) {
-            return result;
-        }
-        List<Integer> levelSecond = new ArrayList<>(Arrays.asList(1,1));
+    public static void main(String[] args) {
+        generate(5);
+    }
 
-        int levelCount = 2;
-        while (levelCount < numRows) {
-            levelCount++;
-            List<Integer> levelBefore = result.get(result.size() - 1);
-            Integer[] leveArr = new Integer[levelBefore.size() + 1];
-            leveArr[0] = 1;
-            leveArr[leveArr.length - 1] = 1;
-            for (int i = 1; i < leveArr.length - 1; i++) {
-                leveArr[i] = levelBefore.get(i - 1) + levelBefore.get(i);
+    public static List<List<Integer>> generate(int numRows) {
+
+        List<List<Integer>> result = new ArrayList<>();
+        for (int i = 1; i <= numRows; i++) {
+            List<Integer> levelList = new ArrayList<>();
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == 1||j==i) {
+                    levelList.add(1);
+                } else {
+                    levelList.add(result.get(i - 2).get(j - 1) + result.get(i - 2).get(j));
+                }
+
             }
-            List<Integer> levelCur = new ArrayList<>(Arrays.asList(leveArr));
-            result.add(levelCur);
+            result.add(levelList);
         }
         return result;
-
     }
 }
+//leetcode submit region end(Prohibit modification and deletion)
