@@ -63,8 +63,10 @@ public class IsMatch {
             for (int j = 1; j < pLen1; j++) {
                 char matchChar = p.charAt(j - 1);
                 if ('*' == matchChar) {
+                    //匹配规则*前的字符有字符串匹配或者没匹配上，都取决于匹配规则*前两个的字符，即dp[i][j-2]
                     if (arr[i][j - 2]) {
                         arr[i][j] = true;
+                        //如果匹配规则*前两个的字符是没有匹配上的，
                     } else if (p.charAt(j - 2) == s.charAt(i - 1)||p.charAt(j - 2)  == '.') {
                         arr[i][j] = arr[i - 1][j];
                     }
