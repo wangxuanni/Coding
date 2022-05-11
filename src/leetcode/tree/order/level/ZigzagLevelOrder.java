@@ -1,4 +1,4 @@
-package leetcode.tree.order;
+package leetcode.tree.order.level;
 
 import leetcode.tree.TreeNode;
 

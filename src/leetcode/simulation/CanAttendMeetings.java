@@ -17,11 +17,8 @@ public class CanAttendMeetings {
                 } else {
                     return false;
                 }
-
             }
-
         }
         return true;
-
     }
 }
