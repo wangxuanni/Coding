@@ -2,49 +2,47 @@ package leetcode.orther;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * 合并区间
+ * 错误思路：根据1排序，A2>=B1&&A2<=B2 ,的方法行不通，因为如果前一个区间的范围包括了后一个区间[2,6][3,4]
+ * 正确思路：根据1排正序，如果1相等，根据2排倒序。只要区间小于等于A2的全部合并。
+ * [2,6][3,4][5,8]
+ * [2,6][3,4][5,8]
+ *
  * @author keyu
  * @since 2022-04-13 15:36
  **/
 
 public class Merge {
     public int[][] merge(int[][] intervals) {
-        int len = intervals.length;
-        int[] oneArr = new int[len];
-        int[] zeroArr = new int[len];
-
-        for (int i = 0; i < intervals.length; i++) {
-            oneArr[i] = intervals[i][1];
-            zeroArr[i] = intervals[i][0];
-        }
-        Arrays.sort(oneArr);
-        Arrays.sort(zeroArr);
-        ArrayList<int[]> result = new ArrayList<int[]>();
-        int start = 0, zero = 0, one = 0, count = 0;
-        while (zero < len && one < len) {
-            if (zeroArr[zero] <= oneArr[one]) {
-                if (count == 0) {
-                    start = zeroArr[zero];
+        if (intervals.length <= 1) return intervals;
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            @Override
+            public int compare(final int[] o1, final int[] o2) {
+                if (o1[0] == o2[0]) {
+                    return o2[1] - o1[1];
+                } else {
+                    return o1[0] - o2[0];
                 }
-                count++;
-                zero++;
+            }
+        });
+        ArrayList<int[]> res = new ArrayList<>();
+        int[] temp = intervals[0];
+        for (int[] arr : intervals) {
+            if (arr[0] <= temp[1]) {
+                if (temp[1] < arr[1]) {
+                    temp[1] = arr[1];
+                }
             } else {
-                count--;
-                one++;
+                res.add(temp);
+                temp = arr;
+
             }
-            if (count == 0) {
-                result.add(new int[]{start, oneArr[one-1]});
-            }
+
         }
-        if (one < len) {
-            result.add(new int[]{start, oneArr[len - 1]});
-        }
-        int[][] res = new int[result.size()][2];
-        for (int i = 0; i < res.length; i++) {
-            res[i] = result.get(i);
-        }
-        return res;
+        res.add(temp);
+        return res.toArray(new int[res.size()][]);
     }
 }
